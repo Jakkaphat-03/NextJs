@@ -50,8 +50,11 @@ export default function PortfolioForm() {
             activities: activityFiles.map((f) => URL.createObjectURL(f)),
             achievements: achievementFiles.map((f) => URL.createObjectURL(f)),
         })
-        router.push('/portfolio/list/teacher')
+
+        // ✅ ไม่ต้อง redirect
+        alert('บันทึกข้อมูลเรียบร้อยแล้ว')
     }
+
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 font-sans">
