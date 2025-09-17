@@ -24,9 +24,10 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>
 
 export default function PortfolioForm() {
-    const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
+    const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: zodResolver(schema),
     })
+
 
     const addPortfolio = usePortfolioStore((s) => s.addPortfolio)
     const router = useRouter()
@@ -45,7 +46,7 @@ export default function PortfolioForm() {
         addPortfolio({
             id: uuidv4(),
             ...data,
-            image: imagePreview,
+            image: imagePreview ?? undefined,
             activities: activityFiles.map((f) => URL.createObjectURL(f)),
             achievements: achievementFiles.map((f) => URL.createObjectURL(f)),
         })
