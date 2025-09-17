@@ -1,3 +1,15 @@
+@font-face {
+  font-family: 'Prompt';
+  src: url('/fonts/Prompt-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* บังคับใช้ทุกหน้า */
+html, body {
+  font-family: 'Prompt', sans-serif;
+}
+
 @import "tailwindcss";
 
 :root {
@@ -23,4 +35,8 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.input {
+  @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500;
 }
